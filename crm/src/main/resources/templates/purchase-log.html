@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Logs</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Purchase Logs</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Product Category</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Star Count</th>
+        <th>Total Price</th>
+        <th>Purchase Time</th>
+        <th>Is Refund</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="purchaseLog : ${purchaseLogs}">
+        <td th:text="${purchaseLog.email}">Email</td>
+        <td th:text="${purchaseLog.gender}">Gender</td>
+        <td th:text="${purchaseLog.age}">Age</td>
+        <td th:text="${purchaseLog.product.category}">Product Category</td>
+        <td th:text="${purchaseLog.product.name}">Product Name</td>
+        <td th:text="${purchaseLog.product.price}">Price</td>
+        <td th:text="${purchaseLog.quantity}">Quantity</td>
+        <td th:text="${purchaseLog.starCount}">Star Count</td>
+        <td th:text="${purchaseLog.totalPrice}">Total Price</td>
+        <td th:text="${purchaseLog.purchaseTime}">Purchase Time</td>
+        <td th:text="${purchaseLog.isRefund}">Is Refund</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

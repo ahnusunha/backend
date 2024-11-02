@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Member Logs</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Member Logs</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Register Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="memberLog : ${memberLogs}">
+        <td th:text="${memberLog.email}">Email</td>
+        <td th:text="${memberLog.gender}">Gender</td>
+        <td th:text="${memberLog.age}">Age</td>
+        <td th:text="${memberLog.registerDate}">Register Date</td>
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>
