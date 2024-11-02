@@ -14,7 +14,7 @@ public class Shop {
 
     private String name;
 
-    // Getters and Setters
+    // getters and setters
     public Long getId() {
         return id;
     }
