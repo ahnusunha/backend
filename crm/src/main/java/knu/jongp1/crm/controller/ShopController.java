@@ -1,21 +1,17 @@
-package knu.jongp1.crm.controller;
-
-import knu.jongp1.crm.service.ShopService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class ShopController {
 
-    private final ShopService shopService;
+    @Autowired
+    private ShopService shopService;
 
-    public ShopController(ShopService shopService) {
-        this.shopService = shopService;
-    }
-    @GetMapping("/shops")
-    public String getShops(Model model) {
-        model.addAttribute("shops", shopService.getAllShops());
-        return "ShopList";
+    // shopId에 따른 사용자 통계 데이터 조회
+    @GetMapping("/api/customer/influx")
+    public UserStatisticsResponse getWeeklyUserInflow(@RequestParam String shopid) {
+        return shopService.getWeeklyUserInflow(shopid);
     }
 }
